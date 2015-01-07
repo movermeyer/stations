@@ -12,7 +12,7 @@ unattended:
 	@ (sudo ls 2>&1) >> tracking.log
 
 ubuntu:
-	@ (sudo apt-get -y install zlibc curl libssl0.9.8 libbz2-dev libxslt*-dev libxml*-dev 2>&1) >> tracking.log
+	@ (sudo apt-get -y install zlibc curl libssl0.9.8 libbz2-dev libxslt*-dev libxml*-dev libsqlite3-0 2>&1) >> tracking.log
 	@ echo "[ assume       ] ubuntu distribution"
 
 bin/activate: requirements.txt
@@ -27,9 +27,6 @@ bin/activate: requirements.txt
 	@ $(SOURCE_ACTIVATE) $(PIP) install -e  .
 	@ $(SOURCE_ACTIVATE) $(PIP) install --default-timeout=100 -r requirements.development.txt 2>&1 | grep Downloading
 	@ touch bin/activate
-
-sqlite3:
-	@ sudo apt-get install libsqlite3-0
 
 deploy: bin/activate
 	@ echo "[ deployed     ] the system was completly deployed"
