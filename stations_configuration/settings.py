@@ -1,4 +1,4 @@
-# Only Celery settings for imagedownloader project.
+# Only Celery settings for stations project.
 
 #import djcelery
 
@@ -24,7 +24,7 @@
 #CELERY_TIMEZONE = 'UTC'
 #CELERY_CONCURRENCY = 7
 
-# Django settings for imagedownloader project.
+# Django settings for stations project.
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -35,7 +35,7 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-from imagedownloader.database import DATABASES
+from stations_configuration.database import DATABASES
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -115,10 +115,10 @@ MIDDLEWARE_CLASSES = (
 	# 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'imagedownloader.urls'
+ROOT_URLCONF = 'stations_configuration.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
-WSGI_APPLICATION = 'imagedownloader.wsgi.application'
+WSGI_APPLICATION = 'stations_configuration.wsgi.application'
 
 TEMPLATE_DIRS = (
 	# Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
@@ -139,10 +139,7 @@ INSTALLED_APPS = (
 	'django.contrib.admin',
 	# Uncomment the next line to enable admin documentation:
 	'django.contrib.admindocs',
-	'factopy',
-	'requester',
-	#'plumbing',
-	#'stations',
+	'stations',
 )
 
 # A sample logging configuration. The only tangible logging

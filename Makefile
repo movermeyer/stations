@@ -36,7 +36,8 @@ show-version:
 	@ $(SOURCE_ACTIVATE) $(PYTHON) --version
 
 test:
-	@ $(SOURCE_ACTIVATE) $(PYTHON) tests/stations_test.py
+	@ $(SOURCE_ACTIVATE) $(PYTHON) manage.py test stations
+	#tests/stations_test.py
 	@ echo "[ tested       ] the system was completly tested"
 
 shell:
