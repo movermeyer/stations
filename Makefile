@@ -53,6 +53,18 @@ test-coveralls:
 
 test-coverage: test-coverage-travis-ci test-coveralls
 
+db-sync:
+	@ echo "[ migrating    ] setting up the database structure"
+	@ ($(SOURCE_ACTIVATE) $(PYTHON) manage.py syncdb --noinput 2>&1) >> ../tracking.log
+
+db-superuser: db-sync
+	@ echo "For the 'dev' user please select a password"
+	@ $(SOURCE_ACTIVATE) $(PYTHON) manage.py createsuperuser --username=dev --email=dev@dev.com
+
+run: db-superuser
+	@ $(SOURCE_ACTIVATE) $(PYTHON) manage.py runserver 0.0.0.0:8000
+
+
 pypi-register: test
 	@ echo "[ record       ] package to pypi servers"
 	@ ($(SOURCE_ACTIVATE) $(PYTHON) setup.py register -r pypi 2>&1) >> tracking.log
