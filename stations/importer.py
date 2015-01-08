@@ -4,9 +4,8 @@ sys.path.append(".")
 from datetime import datetime, timedelta
 #from xlrd import open_workbook, XL_CELL_EMPTY, XL_CELL_BLANK
 import csv
-from libs.file import netcdf as nc
+from netcdf import netcdf as nc
 from libs.geometry import jaen as geo
-from libs.console import show
 import numpy as np
 from libs.statistics import error
 import pytz
@@ -76,7 +75,7 @@ def rows2netcdf(rows, root, measurements, index):
 			measurements[i_e, index,:] = np.array([0, 0])
 			earth_failures += 1
 			i_e += 1
-		show("Detected %i of %i estimated times without earth measure.\n" % (earth_failures, len(slots)))
+		print("Detected %i of %i estimated times without earth measure.\n" % (earth_failures, len(slots)))
 		#error.rmse(root, index)
 		#nc.close(root)
 
