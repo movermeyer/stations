@@ -35,7 +35,12 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-from stations_configuration.database import DATABASES
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+	'NAME': 'stations.sqlite3',
+    }
+}
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
