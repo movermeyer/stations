@@ -53,6 +53,9 @@ test-coveralls:
 
 test-coverage: test-coverage-travis-ci test-coveralls
 
+run:
+	@ $(SOURCE_ACTIVATE) $(PYTHON) manage.py runserver 0.0.0.0:8000
+
 pypi-register: test
 	@ echo "[ record       ] package to pypi servers"
 	@ ($(SOURCE_ACTIVATE) $(PYTHON) setup.py register -r pypi 2>&1) >> tracking.log
