@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 from distutils.core import setup
 from distutils.command.build import build
-from setuptools.command import easy_install
+#from setuptools.command import easy_install
 import os
 import subprocess
 from urllib import urlretrieve
